@@ -1,4 +1,4 @@
-FROM ruby:2.7.0
+FROM ruby:2.6.2
 
 RUN apt-get update && apt-get install -y build-essential
 
@@ -8,12 +8,13 @@ RUN apt-get install -y libpq-dev
 # for a JS runtime
 RUN apt-get install -y nodejs
 
-ENV APP_HOME /lucky-start
+RUN mkdir /lucky-star
+WORKDIR /lucky-star
 
-RUN mkdir $APP_HOME
-WORKDIR $APP_HOME
-
-ADD . $APP_HOME
+COPY Gemfile /lucky-star/Gemfile
+COPY Gemfile.lock /lucky-star/Gemfile.lock
 
 RUN gem install bundler
-# RUN bundle install
+RUN bundle install
+
+COPY . /lucky-star

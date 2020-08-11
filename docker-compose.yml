@@ -2,10 +2,14 @@
 version: '3.5'
 
 services:
-  app:
+  web:
     build: .
     command: bash -c "while [ true ]; do sleep 10; done"
-    container_name: lucky-star
+    container_name: luckystar
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=secretpassword
+    image: lucky-star
     volumes:
       - .:/lucky-star
     ports:
