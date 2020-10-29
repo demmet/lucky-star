@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pages/index'
   devise_for :users
 
   namespace :admin do
@@ -7,7 +8,5 @@ Rails.application.routes.draw do
     root to: 'users#index'
   end
 
-  get '/index', to: 'application#index'
-
-  root to: 'application#index'
+  root to: 'pages#index'
 end
