@@ -1,12 +1,14 @@
-FROM ruby:2.6.2
+FROM ruby:2.7.2
 
 RUN apt-get update && apt-get install -y build-essential
 
-# for postgres
+# for PostgreSQL
 RUN apt-get install -y libpq-dev
 
 # for a JS runtime
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt-get install -y nodejs
+
+RUN npm install --global yarn
 
 RUN mkdir /lucky-star
 WORKDIR /lucky-star
