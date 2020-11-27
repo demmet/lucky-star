@@ -13,10 +13,8 @@ RUN npm install --global yarn
 RUN mkdir /lucky-star
 WORKDIR /lucky-star
 
-COPY Gemfile /lucky-star/Gemfile
-COPY Gemfile.lock /lucky-star/Gemfile.lock
+COPY . /lucky-star
 
-RUN gem install bundler
 RUN bundle install
 
-COPY . /lucky-star
+EXPOSE 3000
