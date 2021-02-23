@@ -7,7 +7,7 @@ require('@rails/ujs').start()
 require('turbolinks').start()
 require('@rails/activestorage').start()
 require('channels')
-require('adminlte.min')
+require('adminlte')
 
 import 'bootstrap'
 import '../stylesheets/application'

@@ -13,9 +13,9 @@ services:
     volumes:
       - .:/lucky-star
     ports:
-      - "3000:3000"
+      - "3001:3001"
     expose:
-      - "3000"
+      - "3001"
     links:
       - db
     depends_on:
@@ -27,5 +27,5 @@ services:
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: secretpassword
-    ports: ["5432:5432"]
-    expose: ["5432"]
+    ports: ["5434:5434"]
+    expose: ["5434"]
