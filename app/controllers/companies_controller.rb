@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies/new
   def new
-    @company = current_user.company.build
+    @company = Company.new
   end
 
   # GET /companies/1/edit
@@ -24,7 +24,7 @@ class CompaniesController < ApplicationController
   # POST /companies
   # POST /companies.json
   def create
-    @company = current_user.company.build(company_params)
+    @company = Company.new(company_params)
 
     respond_to do |format|
       if @company.save
