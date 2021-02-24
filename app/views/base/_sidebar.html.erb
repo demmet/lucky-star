@@ -12,8 +12,9 @@
       <!--<div class="image">
         <%= image_tag "user2-160x160.jpg", class: "img-circle elevation-2", alt: "User Image" %>
       </div>-->
-      <div class="info">
-        <a href="#" class="d-block"><%= current_user.email %></a>
+      <div class="info d-flex flex-column align-items-center">
+        <a href="#"><%= current_user.email %></a>
+        <%= button_to 'Sair', destroy_user_session_path, method: :delete, class: "btn btn-block btn-default btn-xs" %>
       </div>
     </div>
 
