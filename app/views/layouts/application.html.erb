@@ -11,7 +11,9 @@
   </head>
 
   <body data-scrollbar-auto-hide="n" class="hold-transition sidebar-mini layout-fixed">
-    <p class="alert"><%= alert %></p>
+    <% if alert.present? %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <div class="wrapper">
       <%= render "base/header" %>
       <%= render "base/sidebar" %>
