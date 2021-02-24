@@ -8,12 +8,12 @@ RUN apt-get install -y libpq-dev
 # for a JS runtime
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt-get install -y nodejs
 
-
 RUN mkdir /lucky-star
 WORKDIR /lucky-star
 
 COPY . /lucky-star
 
+RUN npm install --global yarn
 RUN bundle install
 
-EXPOSE 3000
+EXPOSE 3001

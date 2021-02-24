@@ -1,5 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
+  before_action :set_companies, only: [:new, :create, :edit]
 
   # GET /employees
   # GET /employees.json
@@ -67,8 +68,12 @@ class EmployeesController < ApplicationController
       @employee = Employee.find(params[:id])
     end
 
+    def set_companies
+      @companies = Company.all.map { |company| [company.name, company.id] }
+    end
+
     # Only allow a list of trusted parameters through.
     def employee_params
-      params.require(:employee).permit(:name, :cpf, :email)
+      params.require(:employee).permit(:name, :cpf, :email, :company_id)
     end
 end
