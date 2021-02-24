@@ -13,8 +13,7 @@ WORKDIR /lucky-star
 
 COPY . /lucky-star
 
-RUN npm install yarn
+RUN npm install --global yarn
 RUN bundle install
-RUN bundle exec rake assets:precompile
 
 EXPOSE 3001
